@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ed">
+  <meta name="description" content="A browser-based Flipper-inspired simulator. No installation required.">
+  <title>flipper-term — browser simulator</title>
+  <link rel="stylesheet" href="web/style.css">
+  <script defer src="web/assets.js"></script>
+  <script defer src="web/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="brand-icon" aria-hidden="true">✳</span> flipper<span>-term</span><small> / WEB</small></a>
+    <div class="top-actions"><span class="browser-badge"><span></span> IN YOUR BROWSER</span><a href="https://github.com/TheEuHub/Flipper-term">View on GitHub <span aria-hidden="true">↗</span></a></div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="eyebrow"><span class="eyebrow-line"></span> A LITTLE DEVICE, IN YOUR BROWSER</div>
+      <h1>Curiosity,<br><em>powered on.</em></h1>
+      <p>A pocket-sized simulator for exploring the Flipper-inspired interface. No hardware or installation required.</p>
+      <div class="intro-note"><span>✳</span> MADE FOR PLAY &amp; EXPLORATION</div>
+    </section>
+
+    <section class="stage" aria-label="Interactive browser simulator">
+      <div class="stage-top"><span>01 / THE SIMULATOR</span><span><span class="status-dot"></span> READY TO PLAY</span></div>
+      <div class="device" aria-label="Simulator controls">
+        <div class="device-top"><span>FLIPPER<span class="device-zero"> ZERO</span></span><span>● ● ●</span></div>
+        <div class="bezel"><canvas id="screen" width="128" height="64" aria-label="Simulator screen" role="img">Your browser does not support canvas.</canvas></div>
+        <div class="under-screen"><span>SIMULATOR</span><span id="led" class="led" aria-label="Activity indicator"></span></div>
+        <div class="controls">
+          <button class="round ok" data-key="ok" aria-label="OK"><span>OK</span></button>
+          <div class="dpad" aria-label="Directional pad">
+            <button class="direction up" data-key="up" aria-label="Up">▲</button>
+            <button class="direction left" data-key="left" aria-label="Left">◀</button>
+            <div class="dpad-center" aria-hidden="true"></div>
+            <button class="direction right" data-key="right" aria-label="Right">▶</button>
+            <button class="direction down" data-key="down" aria-label="Down">▼</button>
+          </div>
+          <button class="round back" data-key="back" aria-label="Back"><span>↶</span></button>
+        </div>
+        <div class="device-bottom"><span>◦ ◦ ◦</span><span>PORTABLE CURIOSITY</span></div>
+      </div>
+      <div class="stage-bottom"><span>USE THE BUTTONS OR YOUR KEYBOARD</span><span>128 × 64 PX</span></div>
+    </section>
+
+    <aside class="guide">
+      <div class="guide-heading"><span>02 / QUICK GUIDE</span><span>↗</span></div>
+      <h2>Make yourself<br>at home.</h2>
+      <p>Press <strong>OK</strong> to open the menu, then use the directional pad to explore.</p>
+      <div class="guide-divider"></div>
+      <div class="guide-label">KEYBOARD SHORTCUTS</div>
+      <div class="shortcut"><span>Navigate</span><span><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd></span></div>
+      <div class="shortcut"><span>Select</span><span><kbd>Enter</kbd> <span class="or">or</span> <kbd>Space</kbd></span></div>
+      <div class="shortcut"><span>Go back</span><span><kbd>Esc</kbd> <span class="or">or</span> <kbd>⌫</kbd></span></div>
+      <div class="guide-divider"></div>
+      <div class="notice"><span>i</span><p>This is a browser simulation, not the firmware. Radio, NFC and GPIO actions are simulated; no hardware signals are sent.</p></div>
+    </aside>
+  </main>
+  <footer><span>AN INDEPENDENT HOBBY PROJECT · NOT AFFILIATED WITH FLIPPER DEVICES</span><span>STAY CURIOUS <b>✳</b></span></footer>
+</body>
+</html>

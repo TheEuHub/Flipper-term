@@ -5,6 +5,30 @@ uses Xlib for its window and draws a 128×64 monochrome framebuffer into a
 clickable device-shaped case. It is **not the Flipper firmware**, a hardware
 emulator, or a drop-in replacement for a device.
 
+## Browser version / GitHub Pages
+
+The browser edition is a separate JavaScript implementation, not the native
+X11 executable compiled for the web. It is a static site: `index.html` and
+`web/` can be hosted directly on GitHub Pages, without a server, Python, build
+step, runtime downloads, or external libraries. To publish it, push these
+files to GitHub, then in the repository's **Settings → Pages** select **Deploy
+from a branch**, choose the branch containing them (usually `main`) and the
+`/ (root)` folder, and save. GitHub will provide the URL once deployed. To try
+it locally, open `index.html` in a browser or serve the repository root with
+`python3 -m http.server`; on GitHub Pages the relative asset paths also work
+under a project subpath.
+
+Use the on-screen controls or arrow keys, Enter/Space and Escape/Backspace.
+The browser simulator includes the embedded firmware-derived font and dolphin
+frames, simulated device menus, Snake, tic-tac-toe, settings and simulated ID
+saving. It stores settings, IDs and the Snake high score in that browser's
+`localStorage`, not in the native app's `vm_sd/`; clearing site data deletes
+them. If storage is blocked, it works for the current session without
+persistence. The browser cannot access the native executable, host files, GPIO
+or radio hardware. In particular, Bad USB script import and execution are not
+implemented in the browser edition. Like the native version, the browser UI is
+a work in progress, not the real firmware or an exact device replica.
+
 ## Build and run on Linux Mint
 
 Keep `flipper-term.cpp`, `device_fonts.h` and `dolphin_frames.h` together. No
@@ -103,11 +127,14 @@ r.push_back({"Passport", [] { return std::make_unique<PassportApp>(); }});
 ```sh
 g++ -std=c++17 -O1 -g -Wall -fsanitize=address,undefined -o /tmp/flipper-test tests/smoke.cpp
 /tmp/flipper-test
+node tests/web_smoke.js  # optional Node.js test for the static site
 ```
 
 The smoke test exercises framebuffer drawing, settings, simulated reads and
 saves, script preview, Snake and reset in a temporary directory. It does not
-exercise an actual X server or fb0 device.
+exercise an actual X server or fb0 device. The web smoke test runs in a mocked
+DOM and does not replace testing in a real browser. The generated browser assets
+can be rebuilt with `python3 tools/build_web_assets.py`.
 
 ## Sources and attribution
 
